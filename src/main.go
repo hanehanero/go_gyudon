@@ -19,7 +19,7 @@ func main() {
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	word := callGyudon()
 	t, _ := template.ParseFiles("template.html")
-	err := t.Execute(os.Stdout, word)
+	err := t.Execute(w, word)
 	if err != nil {
 		log.Fatalln(err)
 	}
